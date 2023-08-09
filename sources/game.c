@@ -2,7 +2,7 @@
 #include <string.h>
 #include "../headers/game.h"
 #include "../headers/devchat.h"
-#define BAG_SIZE 10
+#define BAG_SIZE 11
 #define ALL_ITEMS_QUANTITY 6
 #define ITEM_NAME_LENGTH 10
 #define NO_ITEM 0
@@ -52,8 +52,8 @@ void initEmptyBag()
 {
     for(int i = 0; i < BAG_SIZE; i++)
     {
-        bag[i] = 0;
-        quantStrg[i] = 0;
+        bag[i] = NO_ITEM;
+        quantStrg[i] = NO_ITEM;
     }
 }
 
@@ -931,6 +931,199 @@ void getcommand()
             else
             {
                 enviarMsg("valor nao reconhecido!");
+            }
+        }
+    }
+    else if (strcmp(commando , "!mochila") == 0)
+    {
+        char slot1_msg[MESSAGE_LENG] = "slot [1]:";
+        char slot2_msg[MESSAGE_LENG] = "slot [2]:";
+        char slot3_msg[MESSAGE_LENG] = "slot [3]:";
+        char slot4_msg[MESSAGE_LENG] = "slot [4]:";
+        char slot5_msg[MESSAGE_LENG] = "slot [5]:";
+        char slot6_msg[MESSAGE_LENG] = "slot [6]:";
+        char slot7_msg[MESSAGE_LENG] = "slot [7]:";
+        char slot8_msg[MESSAGE_LENG] = "slot [8]:";
+        char slot9_msg[MESSAGE_LENG] = "slot [9]:";
+        char slot10_msg[MESSAGE_LENG] = "slot [10]:";
+        if (bag[1] == NO_ITEM)
+        {
+            sprintf(slot1_msg , "%s %s" , slot1_msg , "NADA");
+            enviarMsg(slot1_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[1]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot1_msg , "%s %s" , slot1_msg , itensNames[bag[1]]);
+                enviarMsg(slot1_msg);
+            }
+            else if (itensSpecification[bag[1]] == STACKABLE_ITEM)
+            {
+                sprintf(slot1_msg , "%s %s quantidade: %d" , slot1_msg , itensNames[bag[1]] , quantStrg[1]);
+                enviarMsg(slot1_msg);
+            }
+        }
+        if (bag[2] == NO_ITEM)
+        {
+            sprintf(slot2_msg , "%s %s" , slot2_msg , "NADA");
+            enviarMsg(slot2_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[2]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot2_msg , "%s %s" , slot2_msg , itensNames[bag[2]]);
+                enviarMsg(slot2_msg);
+            }
+            else if (itensSpecification[bag[2]] == STACKABLE_ITEM)
+            {
+                sprintf(slot2_msg , "%s %s quantidade: %d" , slot2_msg , itensNames[bag[2]] , quantStrg[2]);
+                enviarMsg(slot2_msg);
+            }
+        }
+        if (bag[3] == NO_ITEM)
+        {
+            sprintf(slot3_msg , "%s %s" , slot3_msg , "NADA");
+            enviarMsg(slot3_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[3]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot3_msg , "%s %s" , slot3_msg , itensNames[bag[3]]);
+                enviarMsg(slot3_msg);
+            }
+            else if (itensSpecification[bag[3]] == STACKABLE_ITEM)
+            {
+                sprintf(slot3_msg , "%s %s quantidade: %d" , slot3_msg , itensNames[bag[3]] , quantStrg[3]);
+                enviarMsg(slot3_msg);
+            }
+        }
+        if (bag[4] == NO_ITEM)
+        {
+            sprintf(slot4_msg , "%s %s" , slot4_msg , "NADA");
+            enviarMsg(slot4_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[4]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot4_msg , "%s %s" , slot4_msg , itensNames[bag[4]]);
+                enviarMsg(slot4_msg);
+            }
+            else if (itensSpecification[bag[4]] == STACKABLE_ITEM)
+            {
+                sprintf(slot4_msg , "%s %s quantidade: %d" , slot4_msg , itensNames[bag[4]] , quantStrg[4]);
+                enviarMsg(slot4_msg);
+            }
+        }
+        if (bag[5] == NO_ITEM)
+        {
+            sprintf(slot5_msg , "%s %s" , slot5_msg , "NADA");
+            enviarMsg(slot5_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[5]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot5_msg , "%s %s" , slot5_msg , itensNames[bag[5]]);
+                enviarMsg(slot5_msg);
+            }
+            else if (itensSpecification[bag[5]] == STACKABLE_ITEM)
+            {
+                sprintf(slot5_msg , "%s %s quantidade: %d" , slot5_msg , itensNames[bag[5]] , quantStrg[5]);
+                enviarMsg(slot5_msg);
+            }
+        }
+        if (bag[6] == NO_ITEM)
+        {
+            sprintf(slot6_msg , "%s %s" , slot6_msg , "NADA");
+            enviarMsg(slot6_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[6]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot6_msg , "%s %s" , slot6_msg , itensNames[bag[6]]);
+                enviarMsg(slot6_msg);
+            }
+            else if (itensSpecification[bag[6]] == STACKABLE_ITEM)
+            {
+                sprintf(slot6_msg , "%s %s quantidade: %d" , slot6_msg , itensNames[bag[6]] , quantStrg[6]);
+                enviarMsg(slot6_msg);
+            }
+        }
+        if (bag[7] == NO_ITEM)
+        {
+            sprintf(slot7_msg , "%s %s" , slot7_msg , "NADA");
+            enviarMsg(slot7_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[7]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot7_msg , "%s %s" , slot7_msg , itensNames[bag[7]]);
+                enviarMsg(slot7_msg);
+            }
+            else if (itensSpecification[bag[7]] == STACKABLE_ITEM)
+            {
+                sprintf(slot7_msg , "%s %s quantidade: %d" , slot7_msg , itensNames[bag[7]] , quantStrg[7]);
+                enviarMsg(slot7_msg);
+            }
+        }
+        if (bag[8] == NO_ITEM)
+        {
+            sprintf(slot8_msg , "%s %s" , slot8_msg , "NADA");
+            enviarMsg(slot8_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[8]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot8_msg , "%s %s" , slot8_msg , itensNames[bag[8]]);
+                enviarMsg(slot8_msg);
+            }
+            else if (itensSpecification[bag[8]] == STACKABLE_ITEM)
+            {
+                sprintf(slot8_msg , "%s %s quantidade: %d" , slot8_msg , itensNames[bag[8]] , quantStrg[8]);
+                enviarMsg(slot8_msg);
+            }
+        }
+        if (bag[9] == NO_ITEM)
+        {
+            sprintf(slot9_msg , "%s %s" , slot9_msg , "NADA");
+            enviarMsg(slot9_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[9]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot9_msg , "%s %s" , slot9_msg , itensNames[bag[9]]);
+                enviarMsg(slot9_msg);
+            }
+            else if (itensSpecification[bag[9]] == STACKABLE_ITEM)
+            {
+                sprintf(slot9_msg , "%s %s quantidade: %d" , slot9_msg , itensNames[bag[9]] , quantStrg[9]);
+                enviarMsg(slot9_msg);
+            }
+        }
+        if (bag[10] == NO_ITEM)
+        {
+            sprintf(slot10_msg , "%s %s" , slot10_msg , "NADA");
+            enviarMsg(slot10_msg);
+        }
+        else
+        {
+            if (itensSpecification[bag[10]] == NOT_STACKABLE_ITEM)
+            {
+                sprintf(slot10_msg , "%s %s" , slot10_msg , itensNames[bag[10]]);
+                enviarMsg(slot10_msg);
+            }
+            else if (itensSpecification[bag[10]] == STACKABLE_ITEM)
+            {
+                sprintf(slot10_msg , "%s %s quantidade: %d" , slot10_msg , itensNames[bag[10]] , quantStrg[10]);
+                enviarMsg(slot10_msg);
             }
         }
     }
