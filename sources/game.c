@@ -1126,6 +1126,20 @@ void getcommand()
                 enviarMsg(slot10_msg);
             }
         }
+        int in_bag = 1;
+        while ( in_bag )
+        {
+            enviarMsg("[!sair] para sair.");
+            char* bag_command = receberString();
+            if (strcmp(bag_command, "!sair") == 0)
+            {
+                in_bag = 0;
+            }
+            else
+            {
+                enviarMsg("commando inexistente.");
+            }
+        }
     }
     else enviarMsg("Comando nao reconhecido!");
 }
